@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Simple Flask UI and API{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/now-ui-kit.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body class="loggedin">
+    <nav class="navbar navbar-expand-lg bg-primary app-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">Simple Flask UI and API</a>
+        <div class="app-nav-links">
+          <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+          <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+          <a class="nav-link" href="{{ url_for('logout') }}">Log out</a>
+        </div>
+      </div>
+    </nav>
+    <main class="app-content">
+      <div class="container">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+  </body>
+</html>

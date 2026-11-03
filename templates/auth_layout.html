@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Simple Flask API{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/now-ui-kit.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body class="login-page">
+    <main class="page-header auth-page">
+      <div
+        class="page-header-image"
+        style="background-image: url('{{ url_for('static', filename='img/auth-background.jpg') }}')"
+      ></div>
+      <div class="container auth-container">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+  </body>
+</html>

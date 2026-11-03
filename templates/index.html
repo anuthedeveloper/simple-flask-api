@@ -1,0 +1,53 @@
+{% extends "auth_layout.html" %}
+
+{% block title %}Log in · Simple Flask API{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5 col-lg-4">
+    <section class="auth-card">
+      <div class="auth-card-header text-center">
+        <h1 class="title">Simple Flask API</h1>
+        <p class="auth-subtitle">Sign in to your account</p>
+      </div>
+      <div class="auth-card-body p-4">
+        {% if msg %}
+        <div class="alert alert-danger" role="alert">{{ msg }}</div>
+        {% endif %}
+        <form action="{{ url_for('login') }}" method="post">
+          <div class="input-group form-group-no-border input-lg">
+            <span class="input-group-addon text-muted" aria-hidden="true">@</span>
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              placeholder="Username"
+              autocomplete="username"
+              required
+            />
+          </div>
+          <div class="input-group form-group-no-border input-lg">
+            <span class="input-group-addon text-muted" aria-hidden="true">*</span>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-round btn-lg btn-block">
+            Log in
+          </button>
+        </form>
+      </div>
+      <div class="auth-card-footer text-center py-4">
+        <p class="auth-footer">
+          New here? <a href="{{ url_for('register') }}">Create an account</a>
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

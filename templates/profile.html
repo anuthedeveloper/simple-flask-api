@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile · Simple Flask API{% endblock %}
+
+{% block content %}
+<section class="app-card">
+  <div class="app-card-header text-center">
+    <h1 class="title">Your profile</h1>
+    <p>Account details</p>
+  </div>
+  <div class="app-card-body">
+    <dl class="profile-details">
+      <dt>Name</dt>
+      <dd>{{ account.name }}</dd>
+      <dt>Username</dt>
+      <dd>{{ account.username }}</dd>
+      <dt>Email</dt>
+      <dd>{{ account.email }}</dd>
+      <dt>Gender</dt>
+      <dd>{{ account.gender|title }}</dd>
+    </dl>
+  </div>
+</section>
+{% endblock %}
