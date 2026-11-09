@@ -7,7 +7,7 @@ load_dotenv()
 class Config:
     SECRET_KEY = os.getenv("SECRET_KEY") or secrets.token_hex(32)
     
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI', 'sqlite:///testapidb.db')
+    DATABASE_URI = os.getenv('DATABASE_URI', 'sqlite:///testapidb.db')
     # Support PostgreSQL through Psycopg 3.
     if DATABASE_URI.startswith("postgres://"):
         DATABASE_URI = DATABASE_URI.replace(

@@ -68,6 +68,28 @@
   text-align: center;
 }
 
+.auth-submit-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  vertical-align: -0.125rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: auth-submit-spin 0.7s linear infinite;
+}
+
+.auth-submit-spinner[hidden] {
+  display: none;
+}
+
+@keyframes auth-submit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .app-navbar {
   position: relative;
 }

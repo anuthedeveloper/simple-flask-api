@@ -14,7 +14,7 @@
         {% if msg %}
         <div class="alert alert-danger" role="alert">{{ msg }}</div>
         {% endif %}
-        <form action="{{ url_for('login') }}" method="post">
+        <form action="{{ url_for('login') }}" method="post" class="auth-form">
           <div class="input-group form-group-no-border input-lg">
             <span class="input-group-addon text-muted" aria-hidden="true">@</span>
             <input
@@ -37,8 +37,13 @@
               required
             />
           </div>
-          <button type="submit" class="btn btn-primary btn-round btn-lg btn-block">
-            Log in
+          <button
+            type="submit"
+            class="btn btn-primary btn-round btn-lg btn-block"
+            data-loading-text="Signing in..."
+          >
+            <span data-submit-label>Log in</span>
+            <span class="auth-submit-spinner" aria-hidden="true" hidden></span>
           </button>
         </form>
       </div>

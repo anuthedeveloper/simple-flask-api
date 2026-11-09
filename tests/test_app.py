@@ -60,16 +60,19 @@ def test_app_factory_registers_web_and_api_routes(client):
     assert b"Sign in to your account" in login_page.data
     assert b'name="username"' in login_page.data
     assert b'name="password"' in login_page.data
+    assert b'data-loading-text="Signing in..."' in login_page.data
 
     register_page = client.get("/register")
     assert register_page.status_code == 200
     assert b'name="name"' in register_page.data
     assert b'name="gender"' in register_page.data
+    assert b'data-loading-text="Creating account..."' in register_page.data
 
     for asset in (
         "css/bootstrap.min.css",
         "css/now-ui-kit.min.css",
         "style.css",
+        "auth.js",
         "img/auth-background.jpg",
     ):
         response = client.get(f"/static/{asset}")

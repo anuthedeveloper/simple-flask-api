@@ -14,7 +14,7 @@
         {% if msg %}
         <div class="alert alert-info" role="status">{{ msg }}</div>
         {% endif %}
-        <form action="{{ url_for('register') }}" method="post" autocomplete="on">
+        <form action="{{ url_for('register') }}" method="post" autocomplete="on" class="auth-form">
           <div class="form-group text-left">
             <label for="name">Full name</label>
             <input
@@ -79,8 +79,13 @@
               <option value="other">Other</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary btn-round btn-lg btn-block">
-            Create account
+          <button
+            type="submit"
+            class="btn btn-primary btn-round btn-lg btn-block"
+            data-loading-text="Creating account..."
+          >
+            <span data-submit-label>Create account</span>
+            <span class="auth-submit-spinner" aria-hidden="true" hidden></span>
           </button>
         </form>
       </div>
